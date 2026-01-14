@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Proposal 💖</title>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background: skyblue;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+/* LAND */
+.land {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(#2ecc71, #27ae60);
+}
+
+/* FLOWERS */
+.flower {
+    position: absolute;
+    bottom: 40%;
+}
+.stem {
+    width: 5px;
+    height: 40px;
+    background: green;
+    margin: auto;
+}
+.petals {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.yellow { background: yellow; }
+.red { background: red; }
+
+/* MAIL */
+.mail-container {
+    position: absolute;
+    top: 20%;
+    left: -200px;
+    animation: fly 6s forwards;
+}
+.mail {
+    width: 140px;
+    height: 90px;
+    background: white;
+    border: 2px solid #e74c3c;
+    position: relative;
+    cursor: pointer;
+}
+.flap {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #f8caca;
+    transform-origin: top;
+    transition: 1s;
+}
+.wing {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    top: 20px;
+}
+.left { left: -45px; animation: flap 0.5s infinite alternate; }
+.right { right: -45px; animation: flap 0.5s infinite alternate; }
+
+/* LETTER */
+.letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border: 3px solid #e74c3c;
+    display: none;
+    text-align: center;
+    animation: pop 1s;
+}
+
+/* ANIMATIONS */
+@keyframes fly {
+    to { left: 40%; }
+}
+@keyframes flap {
+    to { transform: rotate(10deg); }
+}
+@keyframes pop {
+    from { transform: translate(-50%, -50%) scale(0); }
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FLOWERS -->
+<div class="flower" style="left:10%">
+    <div class="petals yellow"></div>
+    <div class="stem"></div>
+</div>
+<div class="flower" style="left:30%">
+    <div class="petals red"></div>
+    <div class="stem"></div>
+</div>
+<div class="flower" style="left:50%">
+    <div class="petals yellow"></div>
+    <div class="stem"></div>
+</div>
+<div class="flower" style="left:70%">
+    <div class="petals red"></div>
+    <div class="stem"></div>
+</div>
+
+<div class="land"></div>
+
+<!-- MAIL -->
+<div class="mail-container" onclick="openMail()">
+    <div class="wing left"></div>
+    <div class="wing right"></div>
+    <div class="mail">
+        <div class="flap" id="flap"></div>
+    </div>
+</div>
+
+<!-- LETTER -->
+<div class="letter" id="letter">
+    <h2>💖 My Valentine 💖</h2>
+    <p>
+        From <b>Liswanth</b> to <b>Diya</b><br><br>
+        After you entered my life,<br>
+        I am so happy.<br><br>
+        Without you, I can't live.<br><br>
+        <b>I love you Diya ❤️</b>
+    </p>
+</div>
+
+<script>
+function openMail() {
+    document.getElementById("flap").style.transform = "rotateX(180deg)";
+    setTimeout(() => {
+        document.getElementById("letter").style.display = "block";
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
